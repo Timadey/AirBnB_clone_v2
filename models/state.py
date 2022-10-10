@@ -15,10 +15,10 @@ class State(BaseModel, Base):
 
     @property
     def cities(self):
-        """Returns the list of City in the State"""
+        """[For FileStorage] Returns the list of City in the State"""
         from models import storage
         # get all cities in the storage
-        cities = storage.all(City)
+        city_store = storage.all(City)
         # check for cities in this states
-        cities_here = [city for city in cities if city.state_id == self.id]
+        cities_here = [city for city in city_store if city.state_id == self.id]
         return cities_here
