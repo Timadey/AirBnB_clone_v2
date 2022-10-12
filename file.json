@@ -12,5 +12,19 @@
 		"updated_at": "2022-10-10T08:50:23.090792",
 		"name": "Nevada",
 		"__class__": "State"
+	},
+	"State.991727a1-19c1-4b09-a0a9-2c3b7b8fa2ee": {
+		"id": "991727a1-19c1-4b09-a0a9-2c3b7b8fa2ee",
+		"created_at": "2022-10-12T20:39:01.032497",
+		"updated_at": "2022-10-12T20:39:01.032509",
+		"name": "California",
+		"__class__": "State"
+	},
+	"State.4dd657de-5e78-4076-93f9-e75e13da7b8e": {
+		"id": "4dd657de-5e78-4076-93f9-e75e13da7b8e",
+		"created_at": "2022-10-12T20:39:01.033264",
+		"updated_at": "2022-10-12T20:39:01.033283",
+		"name": "Nevada",
+		"__class__": "State"
 	}
 }
