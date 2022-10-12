@@ -23,7 +23,7 @@ class DBStorage():
         user = getenv("HBNB_MYSQL_USER")
         passwd = getenv("HBNB_MYSQL_PWD")
         host = getenv("HBNB_MYSQL_HOST")
-        db = getenv("HBNB_MYSQL_HOST")
+        db = getenv("HBNB_MYSQL_DB")
         env = getenv("HBNB_ENV")
         self.__engine = create_engine(
             f"mysql+mysqldb://{user}:{passwd}@{host}:3306/{db}", pool_pre_ping=True)
@@ -35,15 +35,17 @@ class DBStorage():
         """Query on current session all object depending on the class"""
         if cls is None:
             # query all types of objects in the db
-            all_cls = self.__session.query(
-                User, State, City, Amenity, Place, Review).all()
+            all_ob = [User, State, City, Amenity, Place, Review]
+            all_cls = []
+            for obj in all_ob:
+                all_cls.extend(self.__session.query(obj).all())
         else:
             # query cls
             all_cls = self.__session.query(cls).all()
         # add each object to the dictionary and return
         all_obj = {}
         for each_obj in all_cls:
-            key = f"{each_obj.__class__}.{each_obj.id}"
+            key = f"{each_obj.__class__.__name__}.{each_obj.id}"
             all_obj[key] = each_obj
         return all_obj
 
