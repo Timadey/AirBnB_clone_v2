@@ -9,7 +9,10 @@ from datetime import datetime
 
 def do_pack():
     """This function downloads the web_static folder
-    and creates an archive of it
+    and creates an archive of it. It generates a .tgz archive from the
+    contents of the web_static folder of your AirBnB Clone repo.
+    The name of the archive created must be
+    web_static_<year><month><day><hour><minute><second>.tgz
     """
     try:
         # Create the directory to save the archive
