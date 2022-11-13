@@ -13,6 +13,7 @@ def do_pack():
     contents of the web_static folder of your AirBnB Clone repo.
     The name of the archive created must be
     web_static_<year><month><day><hour><minute><second>.tgz
+    Returns: the name of the archive
     """
     try:
         # Create the directory to save the archive
