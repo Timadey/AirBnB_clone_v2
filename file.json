@@ -1,0 +1,31 @@
+{
+	"User.5a6e0988-601e-4339-a742-6f3dec5cfe22": {
+		"id": "5a6e0988-601e-4339-a742-6f3dec5cfe22",
+		"created_at": "2022-11-15T22:12:00.269398",
+		"updated_at": "2022-11-15T22:12:00.269416",
+		"name": "Gideon",
+		"age": 58,
+		"sex": "Male",
+		"__class__": "User"
+	},
+	"User.192593e1-4874-4f0d-ab5f-270054c26e3f": {
+		"id": "192593e1-4874-4f0d-ab5f-270054c26e3f",
+		"created_at": "2022-11-15T22:12:16.625937",
+		"updated_at": "2022-11-15T22:12:16.625967",
+		"__class__": "User"
+	},
+	"State.d818e813-b95d-4a86-bba4-5bf823d5e0f0": {
+		"id": "d818e813-b95d-4a86-bba4-5bf823d5e0f0",
+		"created_at": "2022-11-15T22:28:12.543052",
+		"updated_at": "2022-11-15T22:28:12.543065",
+		"name": "California",
+		"__class__": "State"
+	},
+	"City.d9771bb4-b67e-454c-8f7c-3c87947c8451": {
+		"id": "d9771bb4-b67e-454c-8f7c-3c87947c8451",
+		"created_at": "2022-11-15T22:32:13.069127",
+		"updated_at": "2022-11-15T22:32:13.069141",
+		"name": "Ibadan",
+		"__class__": "City"
+	}
+}

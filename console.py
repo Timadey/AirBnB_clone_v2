@@ -135,8 +135,8 @@ class HBNBCommand(cmd.Cmd):
         new_instance = HBNBCommand.classes[c_name]()
         if c_params:  # if there are parameters
             # get each parameter
-            c_params = c_params.partition(' ')
-            param = c_params[0]
+            c_params = c_params.partition(' ') # (name=oyo, ' ', year=2022)
+            param = c_params[0] # param = 'name=oyo'
             while param != '':  # while there is still a parameter
                 param = param.partition('=')
                 # isolate the key and value

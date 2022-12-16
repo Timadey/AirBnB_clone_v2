@@ -23,7 +23,7 @@ class BaseModel:
         self.updated_at = datetime.now()
 
         if kwargs:
-            if '__class___' in kwargs:
+            if '__class__' in kwargs:
                 del kwargs['__class__']
             for attr, value in kwargs.items():
                 if attr == 'updated_at' or attr == 'created_at':
