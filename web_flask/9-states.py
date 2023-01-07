@@ -1,40 +1,36 @@
 #!/usr/bin/python3
-""" Script that runs an app with Flask framework """
-from flask import Flask, render_template
+"""Starts a Flask web application"""
+
 from models import storage
 from models.state import State
-from models.city import City
-
-
+from flask import Flask
+from flask import render_template
 app = Flask(__name__)
 
 
+@app.route('/states', strict_slashes=False)
+@app.route('/states/<id>', strict_slashes=False)
+def states_1(id=None):
+    """Returns a rendered html template:
+    if id is given, list the cities of that State
+    else, list all States
+    """
+    states = storage.all('State')
+    if id:
+        key = '{}.{}'.format('State', id)
+        if key in states:
+            states = states[key]
+        else:
+            states = None
+    else:
+        states = storage.all('State').values()
+    return render_template('9-states.html', states=states, id=id)
+
+
 @app.teardown_appcontext
-def teardown_session(exception):
-    """ Teardown """
+def teardown(self):
+    """Removes the current SQLAlchemy Session"""
     storage.close()
 
-
-@app.route('/states/', strict_slashes=False)
-@app.route('/states/<id>', strict_slashes=False)
-def display_html(id=None):
-    """ Function called with /states route """
-    states = storage.all(State)
-
-    if not id:
-        dict_to_html = {value.id: value.name for value in states.values()}
-        return render_template('7-states_list.html',
-                               Table="States",
-                               items=dict_to_html)
-
-    k = "State.{}".format(id)
-    if k in states:
-        return render_template('9-states.html',
-                               Table="State: {}".format(states[k].name),
-                               items=states[k])
-
-    return render_template('9-states.html',
-                           items=None)
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
